@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DWES — BATERÍA DE EXAMEN</title>
+  <link rel="stylesheet" href="dwes_style.css">
+</head>
+<body>
+
+<header>
+  <div class="wave-top"></div>
+  <div class="header-inner">
+    <div class="header-logo">🌊</div>
+    <div class="header-text">
+      <h1>DWES — Desarrollo Web Entorno Servidor</h1>
+      <p>Batería de examen tipo test · PHP · Laravel · APIs · Cloud</p>
+    </div>
+    <div class="header-badge">
+      <span class="count" id="total-preguntas-badge">—</span>
+      <span class="label">preguntas<br>en banco</span>
+    </div>
+  </div>
+</header>
+
+<div id="panel-configuracion">
+  <div class="panel-titulo">⚡ Elige el tema o hazte un test tuttifrutti, cranc!!! ⚡</div>
+  <div class="controles-grid">
+
+    <div class="control-grupo">
+      <label>▸ Unidad formativa</label>
+      <div class="tema-opciones">
+        <button class="tema-btn activo" data-tema="todos">TODAS</button>
+        <button class="tema-btn" data-tema="UF1">UF1 — Intro Servidor</button>
+        <button class="tema-btn" data-tema="UF3">UF3 — PHP Avanzado</button>
+        <button class="tema-btn" data-tema="UF4">UF4 — Acceso a Datos</button>
+        <button class="tema-btn" data-tema="UF5">UF5 — Laravel I</button>
+        <button class="tema-btn" data-tema="UF6">UF6 — Laravel II / ORM</button>
+        <button class="tema-btn" data-tema="UF7">UF7 — Servicios Web REST</button>
+        <button class="tema-btn" data-tema="UF8">UF8 — Apps Híbridas</button>
+        <button class="tema-btn" data-tema="UF9">UF9 — Servidores en la Nube</button>
+      </div>
+    </div>
+
+    <div class="control-grupo">
+      <label>▸ Número de preguntas</label>
+      <select id="num-preguntas">
+        <option value="10">10 preguntas</option>
+        <option value="20" selected>20 preguntas</option>
+        <option value="30">30 preguntas</option>
+        <option value="40">40 preguntas</option>
+        <option value="999">Todas las disponibles</option>
+      </select>
+    </div>
+
+    <div class="control-grupo">
+      <button id="btn-comenzar">🏄 COMENZAR</button>
+    </div>
+
+  </div>
+  <div class="temas-info" id="temas-info"></div>
+</div>
+
+<div id="barra-progreso">
+  <div class="progreso-texto" id="progreso-texto">PREGUNTA 1/20</div>
+  <div class="progreso-barra">
+    <div class="progreso-fill" id="progreso-fill" style="width:0%"></div>
+  </div>
+  <div class="score-display">CORRECTAS: <span id="score-live">0</span></div>
+</div>
+
+<div id="zona-quiz">
+  <div class="pregunta-card">
+    <div class="pregunta-header">
+      <span class="pregunta-num" id="pregunta-num-txt">PREGUNTA 1 DE 20</span>
+      <span class="pregunta-tema" id="pregunta-tema-txt">UF1</span>
+    </div>
+    <div class="pregunta-texto" id="pregunta-texto"></div>
+    <div class="opciones-lista" id="opciones-lista"></div>
+    <div class="feedback-msg" id="feedback-msg"></div>
+    <div class="feedback-explicacion" id="feedback-explicacion"></div>
+    <div class="quiz-nav">
+      <button class="btn-nav" id="btn-anterior">◀ ANTERIOR</button>
+      <span id="nav-puntos">· · ·</span>
+      <button class="btn-nav primario" id="btn-siguiente" disabled>SIGUIENTE ▶</button>
+    </div>
+  </div>
+</div>
+
+<div id="zona-resultados">
+  <div class="resultado-box">
+    <div class="resultado-emoji" id="res-emoji">🏄</div>
+    <div class="resultado-titulo">RESULTADO FINAL</div>
+    <div class="resultado-subtitulo" id="res-subtitulo">DWES — Evaluación</div>
+    <div class="resultado-nota" id="res-nota">—</div>
+    <div class="resultado-fraction" id="res-fraction">0 / 0</div>
+    <div class="resultado-barra">
+      <div class="resultado-barra-fill" id="res-barra-fill" style="width:0%"></div>
+    </div>
+    <div class="resultado-calificacion" id="res-calificacion">—</div>
+    <div class="resultado-stats">
+      <div class="stat-box">
+        <div class="stat-num" id="res-correctas" style="color:var(--verde)">0</div>
+        <div class="stat-label">Correctas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="res-incorrectas" style="color:var(--coral)">0</div>
+        <div class="stat-label">Incorrectas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="res-sin-resp" style="color:var(--arena-oscura)">0</div>
+        <div class="stat-label">Sin responder</div>
+      </div>
+    </div>
+    <div class="resultado-acciones">
+      <button class="btn-resultado" id="btn-repetir">↺ REPETIR MISMO</button>
+      <button class="btn-resultado" id="btn-nuevo">⟳ NUEVO CUESTIONARIO</button>
+      <button class="btn-resultado secundario" id="btn-volver">◀ VOLVER</button>
+    </div>
+  </div>
+</div>
+
+<script src="dwes_preguntas.js"></script>
+<script src="dwes_app.js"></script>
+</body>
+</html>
